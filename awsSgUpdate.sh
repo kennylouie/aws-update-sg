@@ -17,4 +17,4 @@ echo "$currentSgIp has been revoked from security group $GROUPNAME."
 ### authorizing the new inbound rule with current ip address
 newIp=$(curl http://checkip.amazonaws.com/)
 aws ec2 authorize-security-group-ingress --group-name $GROUPNAME --protocol tcp --port 22 --cidr $newIp/32
-echo "$newIp has been authorized for security group $GROUPNAME"
+echo "$newIp/32 has been authorized for security group $GROUPNAME"
